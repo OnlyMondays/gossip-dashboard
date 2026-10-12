@@ -1,4 +1,5 @@
 import type { ClusterSnapshot } from '~/types/cluster'
+import { ref, onMounted, onScopeDispose } from 'vue'
 
 export function useClusterStream(url: string) {
   const status = ref<'connecting' | 'open' | 'error'>('connecting')
