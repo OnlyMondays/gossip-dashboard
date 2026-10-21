@@ -1,4 +1,4 @@
-import type { ClusterSnapshot } from '~/types/cluster'
+import { isClusterSnapshot, type ClusterSnapshot } from '~/types/cluster'
 import { ref, onMounted, onScopeDispose } from 'vue'
 
 export function useClusterStream(url: string) {
@@ -12,7 +12,18 @@ export function useClusterStream(url: string) {
     source.onopen = () => { status.value = 'open' }
     source.onerror = () => { status.value = 'error' }
     source.onmessage = (e) => {
-      snapshot.value = JSON.parse(e.data) as ClusterSnapshot
+      let data: unknown
+      try {
+        data = JSON.parse(e.data)
+      } catch {
+        console.warn('cluster stream: ignoring non-JSON message')
+        return
+      }
+      if (!isClusterSnapshot(data)) {
+        console.warn('cluster stream: ignoring malformed snapshot', data)
+        return
+      }
+      snapshot.value = data
       lastUpdate.value = new Date()
       status.value = 'open'
     }

@@ -50,6 +50,5 @@ Covers the `useClusterStream` composable (connect, message handling, error state
 
 ## Limitations
 
-- Payloads are cast to their TypeScript type rather than validated at runtime.
 - The backend polls nodes once per second, so the dashboard is near-real-time, not instant.
 - No authentication on the stream.
