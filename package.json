@@ -7,7 +7,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "test": "vitest run"
+    "test": "vitest run",
+    "typecheck": "nuxi typecheck"
   },
   "dependencies": {
     "@nuxtjs/tailwindcss": "^6.14.0",
@@ -19,6 +20,8 @@
     "@vitejs/plugin-vue": "^6.0.10",
     "@vue/test-utils": "^2.5.1",
     "happy-dom": "^21.0.1",
-    "vitest": "^5.0.4"
+    "typescript": "^6.0.3",
+    "vitest": "^5.0.4",
+    "vue-tsc": "^3.3.13"
   }
 }
