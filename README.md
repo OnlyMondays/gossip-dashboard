@@ -37,7 +37,7 @@ The stream URL is configured with the `NUXT_PUBLIC_STREAM_URL` environment varia
 npm test
 ```
 
-Covers the `useClusterStream` composable (connect, message handling, error state, cleanup on unmount, using a fake `EventSource`) and the `NodeCard` component (online and offline rendering).
+Covers the `useClusterStream` composable (connect, message handling, ignoring non-JSON and malformed messages, error state, cleanup on unmount, using a fake `EventSource`) and the `NodeCard` component (online and offline rendering).
 
 ## Design decisions
 

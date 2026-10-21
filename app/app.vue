@@ -3,9 +3,11 @@ const config = useRuntimeConfig()
 const { status, snapshot, lastUpdate } = useClusterStream(config.public.streamUrl)
 const tvMode = ref(false)
 
-const pct = computed(() =>
-  snapshot.value ? Math.min(100, (snapshot.value.global_total / snapshot.value.limit) * 100) : 0
-)
+const pct = computed(() => {
+  const s = snapshot.value
+  if (!s || s.limit <= 0) return 0
+  return Math.min(100, (s.global_total / s.limit) * 100)
+})
 const barColor = computed(() =>
   pct.value > 90 ? 'bg-red-500' : pct.value > 70 ? 'bg-yellow-500' : 'bg-green-500'
 )
