@@ -12,7 +12,7 @@ A real-time dashboard for [gossip-rate-limiter](https://github.com/OnlyMondays/g
 
 ## Stack
 
-Nuxt 3, Vue 3 (Composition API), TypeScript, Tailwind CSS, Vitest, Docker
+Nuxt 4, Vue 3 (Composition API), TypeScript, Tailwind CSS, Vitest, Docker
 
 ## Run it
 
